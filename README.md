@@ -1,1 +1,1 @@
-# Gem `ai-sentiment`
+# Sentiment-aI
