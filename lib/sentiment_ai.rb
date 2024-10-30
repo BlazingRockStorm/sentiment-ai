@@ -1,5 +1,21 @@
+# frozen_string_literal: true
+
 class SentimentAI
-  def self.hi
-    puts "Hello world!"
+  def self.new(provider, token, options)
+    puts 'TO DO: The new function'
+  end
+
+  # def build_chat(provider, token, options)
+  #   klass = GenAI::Chat.constants.find do |const|
+  #     const.to_s.downcase == provider.to_s.downcase.gsub('_', '')
+  #   end
+
+  #   raise UnsupportedProvider, "Unsupported Chat provider '#{provider}'" unless klass
+
+  #   @chat = GenAI::Chat.const_get(klass).new(provider: provider, token: token, options: options)
+  # end
+
+  def self.analyze
+    puts 'TO DO: The analyze function'
   end
 end

@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email       = 'quanhoangd129@gmail.com'
   spec.files       = ['lib/sentiment_ai.rb']
   spec.homepage    = 'https://rubygems.org/gems/sentiment-ai'
-  spec.license       = 'MIT'
+  spec.license     = 'MIT'
   spec.required_ruby_version = '>= 3.1.0'
 
   spec.metadata['source_code_uri'] = 'https://github.com/BlazingRockStorm/sentiment-ai'
