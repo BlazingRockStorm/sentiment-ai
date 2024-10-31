@@ -21,7 +21,11 @@ class SentimentAI
           end
   end
 
-  def self.analyze
-    puts 'TO DO: The analyze function'
+  def analyze_sentence(sentence)
+    prompt = "Analyze the sentiment of the sentence given below.\n#{sentence}\nThe output should be in the format- Semtiment: Value"
+    @result = client.stream_generate_content({
+      contents: { role: 'user', parts: { text: prompt } },
+      generationConfig: { temperature: 0 }
+    })
   end
 end
