@@ -1,6 +1,4 @@
 # frozen_string_literal: true
-require 'openai'
-require 'gemini-ai'
 
 class SentimentAI
   def initialize(model, token)
