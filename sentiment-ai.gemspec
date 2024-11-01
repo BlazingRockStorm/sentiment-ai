@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.description = 'A gem that use Generative AI for data sentiment analysis'
   spec.authors     = ['Quan Hoang']
   spec.email       = 'quanhoangd129@gmail.com'
-  spec.files       = ['lib/sentiment_ai.rb', 'lib/sentiment_ai/version.rb', 'lib/sentiment_ai/dependency.rb']
+  spec.files       = Dir['lib/sentiment_ai.rb', 'lib/sentiment_ai/*.rb']
   spec.homepage    = 'https://rubygems.org/gems/sentiment-ai'
   spec.license     = 'MIT'
   spec.required_ruby_version = '>= 3.1.0'
