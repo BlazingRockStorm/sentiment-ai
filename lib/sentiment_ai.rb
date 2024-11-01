@@ -4,7 +4,7 @@ require 'gemini-ai'
 
 class SentimentAI
   def initialize(model, token)
-    @ai = case model
+    @sentiment_ai = case model
           when :open_ai
             OpenAI::Client.new(access_token: token)
           when :gemini_ai_flash, :gemini_ai_pro
