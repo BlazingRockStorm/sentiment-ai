@@ -13,9 +13,9 @@ RSpec.describe 'Using Gemini Pro model' do
   describe 'analyze feature' do
     describe '#analyze_sentence' do
       xit 'return the sentiment of the sentence' do
-        expect(sentiment.analyze_sentence(:positive_sentence_example)).to eq('Sentiment: Positive')
-        expect(sentiment.analyze_sentence(:negative_sentence_example)).to eq('Sentiment: Negative')
-        expect(sentiment.analyze_sentence(:neutral_sentence_example)).to eq('Sentiment: Neutral')
+        expect(sentiment.analyze_sentence('Delicious food')).to eq('Sentiment: Positive')
+        expect(sentiment.analyze_sentence('Too noisy!!!')).to eq('Sentiment: Negative')
+        expect(sentiment.analyze_sentence("I really don't know how to feel about Pokemon")).to eq('Sentiment: Neutral')
       end
     end
   end
