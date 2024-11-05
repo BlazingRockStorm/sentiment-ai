@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require 'sentiment_ai/version'
-require 'openai'
-require 'gemini-ai'
+require 'sentiment_ai/core/gemini_driver'
+require 'sentiment_ai/core/openai_driver'
 
 module SentimentAI
   def self.adapter=(klass)
@@ -14,22 +14,19 @@ module SentimentAI
   end
 
   class Base
-    def initialize(model, token)
+    def initialize(model, api_key)
       @generative_ai = case model
                        when :open_ai
-                         OpenAI::Client.new(access_token: token)
+                         Core::OpenAIDriver.new(api_key)
                        when :gemini_ai_flash, :gemini_ai_pro
-                         model_type = model == :gemini_ai_flash ? 'gemini-flash' : 'gemini-pro'
-                         Gemini.new(
-                           credentials: {
-                             service: 'generative-language-api',
-                             api_key: token
-                           },
-                           options: { model: model_type, server_sent_events: true }
-                         )
+                         Core::GeminiDriver.new(model, api_key)
                        else
                          raise ArgumentError
                        end
+    end
+
+    def analyze_sentence(sentence)
+      puts @generative_ai.analyze_sentence(sentence)
     end
   end
 end
