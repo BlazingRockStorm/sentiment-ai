@@ -18,8 +18,8 @@ module SentimentAI
       @generative_ai = case model
                        when :open_ai
                          Core::OpenAIDriver.new(api_key)
-                       when :gemini_ai_flash, :gemini_ai_pro
-                         Core::GeminiDriver.new(model, api_key)
+                       when :gemini_ai_pro
+                         Core::GeminiDriver.new(api_key)
                        else
                          raise ArgumentError
                        end

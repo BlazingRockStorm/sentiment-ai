@@ -14,6 +14,7 @@ GEM
       bigdecimal
       rexml
     diff-lcs (1.5.1)
+    dotenv (3.1.4)
     ethon (0.16.0)
       ffi (>= 1.15.0)
     event_stream_parser (1.0.0)
@@ -93,6 +94,7 @@ PLATFORMS
   x86_64-darwin-22
 
 DEPENDENCIES
+  dotenv
   gemini-ai (~> 4.2)
   rake (~> 13.0)
   rspec (~> 3.7)
