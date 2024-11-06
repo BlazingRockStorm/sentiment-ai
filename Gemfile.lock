@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    sentiment-ai (0.0.1.pre.alpha)
+    sentiment-ai (0.0.1.pre.beta)
 
 GEM
   remote: https://rubygems.org/

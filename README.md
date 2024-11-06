@@ -2,7 +2,7 @@
 
 ✨ A gem that use Generative AI for data sentiment analysis ✨
 
-The styling is to look like Sentimental, a tribute to the song Shunkan Sentimental
+The styling is to look like Sentimental, a tribute to the song Shunkan Sentimental by SCANDAL
 
 ## Installation
 
@@ -31,9 +31,11 @@ Then use it like this:
 sentiment = SentimentAI.new(YOUR_MODEL,YOUR_API_KEY)
 ```
 
+With `YOUR_MODEL` is `:gemini_ai_pro` or `:open_ai`.
+
 For example:
 ```ruby
-sentiment = SentimentAI.new(:open_ai,OPEN_AI_KEY)
+sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY)
 ```
 
 For the current version, the gem supports only OpenAI and Google Gemini.
