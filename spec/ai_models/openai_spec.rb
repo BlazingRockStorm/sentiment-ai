@@ -3,9 +3,8 @@
 require 'spec_helper'
 require 'dotenv/load'
 
-MOCK_TOKEN = ENV['OPENAI_KEY']
 RSpec.describe 'Using OpenAI model' do
-  let(:sentiment) { SentimentAI.new(:open_ai, MOCK_TOKEN) }
+  let(:sentiment) { SentimentAI.new(:open_ai, ENV['OPENAI_KEY']) }
 
   describe 'new model behaviours' do
     it 'model being called correctly' do

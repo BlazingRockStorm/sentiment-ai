@@ -3,9 +3,8 @@
 require 'spec_helper'
 require 'dotenv/load'
 
-MOCK_API = ENV['GEMINI_API']
 RSpec.describe 'Using Gemini Pro model' do
-  let(:sentiment) { SentimentAI.new(:gemini_ai_pro, MOCK_API) }
+  let(:sentiment) { SentimentAI.new(:gemini_ai_pro, ENV['GEMINI_API']) }
 
   describe 'new model behaviours' do
     it 'model being called correctly' do
