@@ -45,6 +45,11 @@ After calling the model, use:
 sentiment.analyze_sentence('Love it')
 # => "Sentiment: Positive"
 ```
+By default, the language used for the gem is English. If you want to use the other languages, Japanese for example, use:
+```ruby
+sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY, :ja)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
