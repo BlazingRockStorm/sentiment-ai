@@ -26,7 +26,7 @@ module SentimentAI
     end
 
     def analyze_sentence(sentence)
-      puts @generative_ai.analyze_sentence(sentence)
+      @generative_ai.analyze_sentence(sentence)
     end
   end
 end
