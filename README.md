@@ -40,12 +40,14 @@ For the current version, the gem supports only OpenAI and Google Gemini.
 
 After calling the model, use:
 ```ruby
-sentiment.analyze_sentence('Love it')
+sentiment.analyze_sentence('I Love Ruby')
 # => "Sentiment: Positive"
 ```
 By default, the language used for the gem is English. If you want to use the other languages, Japanese for example, use:
 ```ruby
 sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY, :ja)
+sentiment.analyze_sentence('Rubyは世界一プログラミング言語')
+# => "所感:肯定的"
 ```
 ### Supported GenAI models
 
