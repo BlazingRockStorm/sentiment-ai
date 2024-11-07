@@ -18,20 +18,21 @@ module SentimentAI
       end
 
       def analyze_sentence(sentence)
-        text_request = "Analyze the sentiment of the sentence given below.\n#{sentence}\nThe output should be in the format- Semtiment: Value"
+        text_request = I18n.t('prompt', sentence: sentence)
+
         response = @sentiment_ai.stream_generate_content({
-                                                contents: { role: 'user', parts: { text: text_request } },
-                                                generationConfig: { temperature: 0 }
-                                              })
+                                                           contents: { role: 'user', parts: { text: text_request } },
+                                                           generationConfig: { temperature: 0 }
+                                                         })
         extract_candidates(response)
       end
-      
+
       private
 
       def extract_candidates(candidates)
         candidates.map { |response| response.dig('candidates', 0, 'content', 'parts') }
-          .map { |parts| parts.map { |part| part['text'] }.join }
-          .join
+                  .map { |parts| parts.map { |part| part['text'] }.join }
+                  .join
       end
     end
   end
