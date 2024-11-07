@@ -1,0 +1,2 @@
+en:
+  prompt: "Analyze the sentiment of the sentence given below.\n%{sentence}\nThe output should be in the format- Semtiment: Value"
