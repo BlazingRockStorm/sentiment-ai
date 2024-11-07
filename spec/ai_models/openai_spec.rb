@@ -5,10 +5,21 @@ require 'dotenv/load'
 
 RSpec.describe 'Using OpenAI model' do
   let(:sentiment) { SentimentAI.new(:open_ai, ENV['OPENAI_KEY']) }
+  let(:japanese_sentiment) { SentimentAI.new(:gemini_ai_pro, ENV['OPENAI_KEY'], :ja) }
 
   describe 'new model behaviours' do
     it 'model being called correctly' do
       expect(sentiment).to be_truthy
+    end
+  end
+
+  describe 'analyze sentence in another language' do
+    describe '#analyze_sentence' do
+      it 'return the sentiment of the sentence' do
+        expect(japanese_sentiment.analyze_sentence('うまい！')).to eq('所感:肯定的')
+        expect(japanese_sentiment.analyze_sentence('不愉快')).to eq('所感: 否定')
+        expect(japanese_sentiment.analyze_sentence('休暇はまずまずでした。')).to eq('所感:中立')
+      end
     end
   end
 

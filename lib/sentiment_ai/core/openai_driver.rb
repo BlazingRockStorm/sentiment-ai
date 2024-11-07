@@ -10,11 +10,12 @@ module SentimentAI
       end
 
       def analyze_sentence(sentence)
-        text_request = "Analyze the sentiment of the sentence given below.\n#{sentence}\nThe output should be in the format- Semtiment: Value"
+        text_request = I18n.t('prompt', sentence: sentence)
+
         @sentiment_ai.chat(
           parameters: {
             model: 'gpt-4o',
-            messages: [{ role: 'user', content: text_request}],
+            messages: [{ role: 'user', content: text_request }],
             temperature: 0.7,
             stream: proc do |chunk, _bytesize|
               print chunk.dig('choices', 0, 'delta', 'content')

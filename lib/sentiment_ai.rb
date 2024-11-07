@@ -3,18 +3,23 @@
 require 'sentiment_ai/version'
 require 'sentiment_ai/core/gemini_driver'
 require 'sentiment_ai/core/openai_driver'
+require 'i18n'
+
+I18n.load_path += Dir["#{File.expand_path('config/locales')}/*.yml"]
+I18n.default_locale = :en
 
 module SentimentAI
   def self.adapter=(klass)
     @klass = klass.capitalize
   end
 
-  def self.new(arg1, arg2)
-    const_get(@klass).new arg1, arg2
+  def self.new(*args)
+    const_get(@klass).new(*args)
   end
 
   class Base
-    def initialize(model, api_key)
+    def initialize(model, api_key, language = :en)
+      I18n.locale = language
       @generative_ai = case model
                        when :open_ai
                          Core::OpenAIDriver.new(api_key)
