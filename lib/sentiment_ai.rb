@@ -33,6 +33,10 @@ module SentimentAI
     def analyze_sentence(sentence)
       @generative_ai.analyze_sentence(sentence)
     end
+
+    def analyze_array(array)
+      @generative_ai.analyze_array(array)
+    end
   end
 end
 

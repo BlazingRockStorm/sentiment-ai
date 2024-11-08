@@ -18,13 +18,23 @@ module SentimentAI
       end
 
       def analyze_sentence(sentence)
-        text_request = I18n.t('prompt', sentence: sentence)
+        text_request = I18n.t('prompt.sentence', sentence: sentence)
 
         response = @sentiment_ai.stream_generate_content({
                                                            contents: { role: 'user', parts: { text: text_request } },
                                                            generationConfig: { temperature: 0 }
                                                          })
         extract_candidates(response)
+      end
+
+      def analyze_array(array)
+        text_request = I18n.t('prompt.array', array: array)
+
+        response = @sentiment_ai.stream_generate_content({
+                                                           contents: { role: 'user', parts: { text: text_request } },
+                                                           generationConfig: { temperature: 0 }
+                                                         })
+        %r[#{extract_candidates(response)}]
       end
 
       private
