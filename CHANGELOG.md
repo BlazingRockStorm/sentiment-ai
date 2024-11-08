@@ -1,3 +1,7 @@
+## [0.0.2.beta] - 2024-11-8
+
+- Add multi-languages and analyze array of sentences by [@BlazingRockStorm](https://github.com/BlazingRockStorm)
+
 ## [0.0.1-beta] - 2024-11-6
 
 - Add sentence analysis for Google Gemini and OpenAI by [@BlazingRockStorm](https://github.com/BlazingRockStorm)
