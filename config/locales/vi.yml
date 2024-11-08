@@ -1,2 +1,3 @@
 vi:
-  prompt: "Phân tích sắc thái của câu dưới đây là tích cực, tiêu cực hay trung lập.\n%{sentence}\nKết quả trả về dưới dạng- Sắc thái: Gía trị"
+  prompt:
+    sentence: "Phân tích sắc thái của câu dưới đây là tích cực, tiêu cực hay trung lập.\n%{sentence}\nKết quả trả về dưới dạng- Sắc thái: Gía trị"

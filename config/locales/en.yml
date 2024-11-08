@@ -1,2 +1,4 @@
 en:
-  prompt: "Analyze the sentiment of the sentence given below.\n%{sentence}\nThe output should be in the format- Semtiment: Value"
+  prompt:
+    sentence: "Analyze the sentiment of the sentence given below.\n%{sentence}\nThe output should be in the format- Semtiment: Value"
+    array: "Analyze the sentiment of all sentences given below.\n%{array}\nThe output should be in the format- [{\"Sentence\" => \"Value\"}]"
