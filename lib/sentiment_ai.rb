@@ -35,7 +35,7 @@ module SentimentAI
     end
 
     def analyze_array(array)
-      @generative_ai.analyze_array(array)
+      JSON.parse(@generative_ai.analyze_array(array).gsub('=>', ':'))
     end
   end
 end
