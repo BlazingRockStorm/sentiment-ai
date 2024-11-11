@@ -1,4 +1,4 @@
-## [0.0.4.beta] - 2024-11-11
+## [0.0.5.beta] - 2024-11-11
 
 - Bug fix [@BlazingRockStorm](https://github.com/BlazingRockStorm)
 
