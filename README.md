@@ -43,6 +43,12 @@ After calling the model, use:
 sentiment.analyze_sentence('I Love Ruby')
 # => "Sentiment: Positive"
 ```
+For analyzing an array of sentence, use:
+```ruby
+array = ['I Love Ruby', "I use Ruby"]
+sentiment.analyze_array(array)
+# => [{ :sentence => 'I Love Ruby', :sentiment => 'positive' }, { :sentence => "I use Ruby", :sentiment => 'neutral' }]
+```
 By default, the language used for the gem is English. If you want to use the other languages, Japanese for example, use:
 ```ruby
 sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY, :ja)
