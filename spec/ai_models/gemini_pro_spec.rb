@@ -35,9 +35,9 @@ RSpec.describe 'Using Gemini Pro model' do
     describe '#analyze_array' do
       let(:array) { ['Delicious food', 'Too noisy!!!', "I really don't know how to feel about Pokemon"] }
       let(:result_array) do
-        [{ 'sentence' => 'Delicious food', 'sentiment' => 'positive' },
-         { 'sentence' => 'Too noisy!!!', 'sentiment' => 'negative' },
-         { 'sentence' => "I really don't know how to feel about Pokemon", 'sentiment' => 'neutral' }]
+        [{ :sentence => 'Delicious food', :sentiment => 'positive' },
+         { :sentence => 'Too noisy!!!', :sentiment => 'negative' },
+         { :sentence => "I really don't know how to feel about Pokemon", :sentiment => 'neutral' }]
       end
 
       it 'return the sentiments of all sentences in the array' do
