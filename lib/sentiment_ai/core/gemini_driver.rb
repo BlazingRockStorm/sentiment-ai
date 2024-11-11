@@ -2,6 +2,7 @@
 
 # Only use Gemini Pro
 require 'gemini-ai'
+require 'json'
 
 module SentimentAI
   module Core
@@ -34,7 +35,7 @@ module SentimentAI
                                                            contents: { role: 'user', parts: { text: text_request } },
                                                            generationConfig: { temperature: 0 }
                                                          })
-        %r[#{extract_candidates(response)}]
+        extract_candidates(response)
       end
 
       private
