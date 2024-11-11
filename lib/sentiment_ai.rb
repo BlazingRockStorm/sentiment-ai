@@ -35,7 +35,9 @@ module SentimentAI
     end
 
     def analyze_array(array)
-      JSON.parse(@generative_ai.analyze_array(array).gsub('=>', ':'))
+      JSON.parse(@generative_ai.analyze_array(array).gsub('=>', ':')).map do |hash|
+        hash.map { |key, value| [key.to_sym, value] }.to_h
+      end
     end
   end
 end

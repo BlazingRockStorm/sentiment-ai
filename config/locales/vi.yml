@@ -1,4 +1,4 @@
 vi:
   prompt:
     sentence: "Phân tích sắc thái của câu dưới đây là tích cực, tiêu cực hay trung lập.\n%{sentence}\nKết quả trả về dưới dạng- Sắc thái: Gía trị"
-    array: "Phân tích sắc thái của các câu dưới đây là tích cực, tiêu cực hay trung lập.\n%{array}\nKết quả trả về dưới dạng- [{\"Câu\" => \"Gía trị bằng tiếng Anh\"}]"
+    array: "Phân tích sắc thái của các câu dưới đây là tích cực, tiêu cực hay trung lập.\n%{array}\nKết quả trả về dưới dạng- [{sentence => value, sentiment => value}]"
