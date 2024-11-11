@@ -1,4 +1,4 @@
 ja:
   prompt:
     sentence: "テキストを中立、否定的、または肯定的に分類してください。 テキスト:%{sentence}\n結果の形式- 所感:値"
-    array: "テキスト配列を中立、否定的、または肯定的に分類してください。 \n%{array}\n結果の形式- [{\"Câu\" => \"Gía trị bằng tiếng Anh\"}]"
+    array: "テキスト配列を中立、否定的、または肯定的に分類してください。 \n%{array}\n結果の形式- [{sentence => value, sentiment => value}]"
