@@ -32,13 +32,11 @@ module SentimentAI
 
     def analyze_sentence(sentence)
       sentiment = @generative_ai.analyze_sentence(sentence)
-      return { sentence: sentence, sentiment: sentiment }
+      { sentence: sentence, sentiment: sentiment }
     end
 
     def analyze_array(array)
-      JSON.parse(@generative_ai.analyze_array(array).gsub('=>', ':')).map do |hash|
-        hash.map { |key, value| [key.to_sym, value] }.to_h
-      end
+      array.map { |sentence| analyze_sentence(sentence) }
     end
   end
 end
