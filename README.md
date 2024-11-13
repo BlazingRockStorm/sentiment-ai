@@ -49,6 +49,22 @@ array = ['I Love Ruby', "I use Ruby"]
 sentiment.analyze_array(array)
 # => [{ :sentence => 'I Love Ruby', :sentiment => 'positive' }, { :sentence => "I use Ruby", :sentiment => 'neutral' }]
 ```
+For analyzing a CSV file, use:
+```ruby
+sentiment.analyze_csv(csv_path)
+```
+Assume that the CSV file is
+```csv
+sentence
+I love Ruby
+I use Ruby
+```
+The output is
+```csv
+sentence,sentiment
+I love Ruby, positive
+I use Ruby, neutral
+```
 By default, the language used for the gem is English. If you want to use the other languages, Japanese for example, use:
 ```ruby
 sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY, :ja)
