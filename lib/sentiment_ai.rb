@@ -4,6 +4,7 @@ require 'sentiment_ai/version'
 require 'sentiment_ai/core/gemini_driver'
 require 'sentiment_ai/core/openai_driver'
 require 'i18n'
+require 'csv'
 
 I18n.load_path += Dir["#{File.expand_path('config/locales')}/*.yml"]
 I18n.default_locale = :en
@@ -37,6 +38,22 @@ module SentimentAI
 
     def analyze_array(array)
       array.map { |sentence| analyze_sentence(sentence) }
+    end
+
+    def analyze_csv(input_csv_path, sentence_column, output_directory)
+      csv_data = CSV.read(input_csv_path, headers: true)
+      unless csv_data.headers.include?(sentence_column)
+        raise ArgumentError,
+              "#{sentence_column} column not found in CSV file"
+      end
+
+      File.open("#{output_directory}/output.csv", 'w') do |file|
+        file.write("sentence,sentiment\n")
+        csv_data.each do |row|
+          result = analyze_sentence(row[sentence_column])
+          file.write "#{result[:sentence]},#{result[:sentiment]}\n"
+        end
+      end
     end
   end
 end
