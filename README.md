@@ -51,17 +51,17 @@ sentiment.analyze_array(array)
 ```
 For analyzing a CSV file, use:
 ```ruby
-sentiment.analyze_csv(csv_path)
+sentiment.analyze_csv(csv_path, sentence_column)
 ```
 Assume that the CSV file is
 ```csv
-sentence
+comment
 I love Ruby
 I use Ruby
 ```
-The output is
+Analyze the file by calling: `sentiment.analyze_csv("path/to/example.csv", "comment")`. The output is:
 ```csv
-sentence,sentiment
+comment,sentiment
 I love Ruby, positive
 I use Ruby, neutral
 ```
@@ -69,7 +69,7 @@ By default, the language used for the gem is English. If you want to use the oth
 ```ruby
 sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY, :ja)
 sentiment.analyze_sentence("Rubyは世界一プログラミング言語")
-# => "所感:肯定的"
+# => { :sentence => "Rubyは世界一プログラミング言語", :sentiment => "肯定的" }
 ```
 ### Supported GenAI models
 
