@@ -41,7 +41,7 @@ For the current version, the gem supports only OpenAI and Google Gemini.
 After calling the model, use:
 ```ruby
 sentiment.analyze_sentence('I Love Ruby')
-# => "Sentiment: Positive"
+# => { :sentence => 'I Love Ruby', :sentiment => 'positive' }
 ```
 For analyzing an array of sentence, use:
 ```ruby
