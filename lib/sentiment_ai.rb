@@ -31,7 +31,8 @@ module SentimentAI
     end
 
     def analyze_sentence(sentence)
-      @generative_ai.analyze_sentence(sentence)
+      sentiment = @generative_ai.analyze_sentence(sentence)
+      return { sentence: sentence, sentiment: sentiment }
     end
 
     def analyze_array(array)
