@@ -51,7 +51,7 @@ sentiment.analyze_array(array)
 ```
 For analyzing a CSV file, use:
 ```ruby
-sentiment.analyze_csv(csv_path, sentence_column)
+sentiment.analyze_csv(csv_path, sentence_column, output_directory)
 ```
 Assume that the CSV file is
 ```csv
@@ -59,7 +59,7 @@ comment
 I love Ruby
 I use Ruby
 ```
-Analyze the file by calling: `sentiment.analyze_csv("path/to/example.csv", "comment")`. The output is:
+Analyze the file by calling: `sentiment.analyze_csv("path/to/example.csv", "comment", "output/directory")`. The output is:
 ```csv
 comment,sentiment
 I love Ruby, positive
