@@ -1,6 +1,8 @@
-## [0.0.5.beta] - 2024-11-11
-
-- Bug fix [@BlazingRockStorm](https://github.com/BlazingRockStorm)
+## [0.0.5] - 2024-11-13
+All by [@BlazingRockStorm](https://github.com/BlazingRockStorm):
+- Rewrite the `analyze_sentence` method to have the output in form of Hash
+- Bug fix with multi-languages
+- Add `analyze_csv` method
 
 ## [0.0.2.beta] - 2024-11-8
 

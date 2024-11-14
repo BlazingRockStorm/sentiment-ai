@@ -23,7 +23,7 @@ This gem is compatible with Ruby 3.1 or greater.
 
 Require it in you code:
 ```ruby
-require 'sentiment_ai'
+require "sentiment_ai"
 ```
 Then use it like this:
 
@@ -40,20 +40,36 @@ For the current version, the gem supports only OpenAI and Google Gemini.
 
 After calling the model, use:
 ```ruby
-sentiment.analyze_sentence('I Love Ruby')
-# => "Sentiment: Positive"
+sentiment.analyze_sentence("I Love Ruby")
+# => { :sentence => "I Love Ruby", :sentiment => "positive" }
 ```
 For analyzing an array of sentence, use:
 ```ruby
-array = ['I Love Ruby', "I use Ruby"]
+array = ["I Love Ruby", "I use Ruby"]
 sentiment.analyze_array(array)
-# => [{ :sentence => 'I Love Ruby', :sentiment => 'positive' }, { :sentence => "I use Ruby", :sentiment => 'neutral' }]
+# => [{ :sentence => "I Love Ruby", :sentiment => "positive" }, { :sentence => "I use Ruby", :sentiment => "neutral" }]
+```
+For analyzing a CSV file, use:
+```ruby
+sentiment.analyze_csv(csv_path, sentence_column, output_directory)
+```
+Assume that the CSV file is
+```csv
+comment
+I love Ruby
+I use Ruby
+```
+Analyze the file by calling: `sentiment.analyze_csv("path/to/example.csv", "comment", "output/directory")`. The output is:
+```csv
+comment,sentiment
+I love Ruby, positive
+I use Ruby, neutral
 ```
 By default, the language used for the gem is English. If you want to use the other languages, Japanese for example, use:
 ```ruby
 sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY, :ja)
-sentiment.analyze_sentence('Rubyは世界一プログラミング言語')
-# => "所感:肯定的"
+sentiment.analyze_sentence("Rubyは世界一プログラミング言語")
+# => { :sentence => "Rubyは世界一プログラミング言語", :sentiment => "肯定的" }
 ```
 ### Supported GenAI models
 
