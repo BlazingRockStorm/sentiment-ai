@@ -3,12 +3,12 @@
 require 'spec_helper'
 require 'dotenv/load'
 
-RSpec.describe 'Using OpenAI model' do
+RSpec.describe 'Using OpenAI provider' do
   let(:sentiment) { SentimentAI.new(:open_ai, ENV['OPENAI_KEY']) }
   let(:japanese_sentiment) { SentimentAI.new(:gemini_ai_pro, ENV['OPENAI_KEY'], :ja) }
 
-  describe 'new model behaviours' do
-    it 'model being called correctly' do
+  describe 'new provider behaviours' do
+    it 'provider being called correctly' do
       expect(sentiment).to be_truthy
     end
   end

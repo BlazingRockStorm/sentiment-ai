@@ -19,9 +19,9 @@ module SentimentAI
   end
 
   class Base
-    def initialize(model, api_key, language = :en)
+    def initialize(provider, api_key, language = :en)
       I18n.locale = language
-      @generative_ai = case model
+      @generative_ai = case provider
                        when :open_ai
                          Core::OpenAIDriver.new(api_key)
                        when :gemini_ai_pro

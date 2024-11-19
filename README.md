@@ -28,7 +28,7 @@ require "sentiment_ai"
 Then use it like this:
 
 ```ruby
-sentiment = SentimentAI.new(YOUR_MODEL,YOUR_API_KEY)
+sentiment = SentimentAI.new(YOUR_PROVIDER,YOUR_API_KEY)
 ```
 
 For example:
@@ -38,7 +38,7 @@ sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY)
 
 For the current version, the gem supports only OpenAI and Google Gemini.
 
-After calling the model, use:
+After calling the provider, use:
 ```ruby
 sentiment.analyze_sentence("I Love Ruby")
 # => { :sentence => "I Love Ruby", :sentiment => "positive" }
@@ -71,7 +71,7 @@ sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY, :ja)
 sentiment.analyze_sentence("Rubyは世界一プログラミング言語")
 # => { :sentence => "Rubyは世界一プログラミング言語", :sentiment => "肯定的" }
 ```
-### Supported GenAI models
+### Supported GenAI providers
 
 | Language | Code |
 |----------|------|
