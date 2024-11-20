@@ -28,6 +28,16 @@ module SentimentAI
         extract_candidates(response)
       end
 
+      def positive_check(sentence)
+        text_request = I18n.t('prompt.positive_check', sentence: sentence)
+
+        response = @sentiment_ai.stream_generate_content({
+                                                           contents: { role: 'user', parts: { text: text_request } },
+                                                           generationConfig: { temperature: 0 }
+                                                         })
+        extract_candidates(response)
+      end
+
       private
 
       def extract_candidates(candidates)

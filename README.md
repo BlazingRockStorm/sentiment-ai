@@ -71,6 +71,12 @@ sentiment = SentimentAI.new(:open_ai, OPEN_AI_KEY, :ja)
 sentiment.analyze_sentence("Rubyは世界一プログラミング言語")
 # => { :sentence => "Rubyは世界一プログラミング言語", :sentiment => "肯定的" }
 ```
+If you want to only choose positive, use:
+```ruby
+sentiment.positive_check("I Love Ruby")
+# => { :sentence => "I Love Ruby", :positive => true }
+# => { :sentence => "It was never love for me", :positive => false }
+```
 ### Supported GenAI providers
 
 | Language | Code |
