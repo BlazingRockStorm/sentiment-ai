@@ -35,6 +35,14 @@ RSpec.describe 'Using Gemini Pro provider' do
       end
     end
 
+    describe '#positive_check' do
+      it 'return true or false' do
+        expect(sentiment.positive_check('Delicious food')).to eq({ sentence: 'Delicious food',
+                                                                      positive: true })
+        expect(sentiment.positive_check('Too noisy!!!')).to eq({ sentence: 'Too noisy!!!', positive: false })
+      end
+    end
+  
     describe '#analyze_array' do
       let(:array) { ['Delicious food', 'Too noisy!!!', "I really don't know how to feel about Pokemon"] }
       let(:result_array) do

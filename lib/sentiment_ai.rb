@@ -36,6 +36,11 @@ module SentimentAI
       { sentence: sentence, sentiment: sentiment }
     end
 
+    def positive_check(sentence)
+      sentiment_bool = @generative_ai.positive_check(sentence)
+      { sentence: sentence, positive: sentiment_bool == 'true' }
+    end
+
     def analyze_array(array)
       array.map { |sentence| analyze_sentence(sentence) }
     end

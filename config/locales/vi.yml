@@ -1,3 +1,4 @@
 vi:
   prompt:
     sentence: "Phân tích sắc thái của câu dưới đây là tích cực, tiêu cực hay trung lập.\n%{sentence}\nKết quả trả về dưới dạng- Gía trị"
+    positive_check: "Câu sau đây có tích cực hay không?\n%{sentence}\nkết quả trả về là true hoặc false"
