@@ -3,6 +3,7 @@
 require 'sentiment_ai/version'
 require 'sentiment_ai/core/gemini_driver'
 require 'sentiment_ai/core/openai_driver'
+require 'sentiment_ai/core/anthropic_driver'
 require 'i18n'
 require 'csv'
 
@@ -26,6 +27,8 @@ module SentimentAI
                          Core::OpenAIDriver.new(api_key)
                        when :gemini_ai_pro
                          Core::GeminiDriver.new(api_key)
+                       when :anthropic
+                         Core::AnthropicDriver.new(api_key)
                        else
                          raise ArgumentError
                        end

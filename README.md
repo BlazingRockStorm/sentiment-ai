@@ -83,6 +83,7 @@ sentiment.positive_check("I Love Ruby")
 |----------|------|
 | OpenAI(GPT) | `:open_ai` |
 | Google Gemini | `:gemini_ai_pro` |
+| Anthropic | `:anthropic` |
 
 ### Supported languages
 
