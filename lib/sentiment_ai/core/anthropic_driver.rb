@@ -29,7 +29,6 @@ module SentimentAI
         @sentiment_ai.messages(
           parameters: {
             model: 'claude-3-haiku-20240307',
-            system: "Respond only in English.",
             messages: [
               { 'role': 'user', 'content': text_request }
             ],
