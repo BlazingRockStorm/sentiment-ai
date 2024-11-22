@@ -1,3 +1,8 @@
+## [0.1.0] - 2024-11-22
+All by [@BlazingRockStorm](https://github.com/BlazingRockStorm):
+- Add `positive_check`
+- Add Anthropic
+
 ## [0.0.5] - 2024-11-13
 All by [@BlazingRockStorm](https://github.com/BlazingRockStorm):
 - Rewrite the `analyze_sentence` method to have the output in form of Hash
