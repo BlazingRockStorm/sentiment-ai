@@ -3,6 +3,7 @@
 require 'sentiment_ai/version'
 require 'sentiment_ai/core/gemini_driver'
 require 'sentiment_ai/core/openai_driver'
+require 'sentiment_ai/core/anthropic_driver'
 require 'i18n'
 require 'csv'
 
@@ -19,13 +20,15 @@ module SentimentAI
   end
 
   class Base
-    def initialize(model, api_key, language = :en)
+    def initialize(provider, api_key, language = :en)
       I18n.locale = language
-      @generative_ai = case model
+      @generative_ai = case provider
                        when :open_ai
                          Core::OpenAIDriver.new(api_key)
                        when :gemini_ai_pro
                          Core::GeminiDriver.new(api_key)
+                       when :anthropic
+                         Core::AnthropicDriver.new(api_key)
                        else
                          raise ArgumentError
                        end
@@ -34,6 +37,11 @@ module SentimentAI
     def analyze_sentence(sentence)
       sentiment = @generative_ai.analyze_sentence(sentence)
       { sentence: sentence, sentiment: sentiment }
+    end
+
+    def positive_check(sentence)
+      sentiment_bool = @generative_ai.positive_check(sentence)
+      { sentence: sentence, positive: sentiment_bool == 'true' }
     end
 
     def analyze_array(array)

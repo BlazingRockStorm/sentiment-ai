@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'csv', '~> 3.3'
   spec.add_development_dependency 'i18n', '~> 1.14'
 
+  spec.add_development_dependency 'anthropic', '~> 0.3.2'
   spec.add_development_dependency 'gemini-ai', '~> 4.2'
   spec.add_development_dependency 'ruby-openai', '~> 6.0'
 end

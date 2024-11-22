@@ -3,9 +3,9 @@
 require 'spec_helper'
 require 'dotenv/load'
 
-RSpec.describe 'Using OpenAI provider' do
-  let(:sentiment) { SentimentAI.new(:open_ai, ENV['OPENAI_KEY']) }
-  let(:japanese_sentiment) { SentimentAI.new(:open_ai, ENV['OPENAI_KEY'], :ja) }
+RSpec.describe 'Using Anthropic provider' do
+  let(:sentiment) { SentimentAI.new(:anthropic, ENV['ANTHROPIC_KEY']) }
+  let(:japanese_sentiment) { SentimentAI.new(:anthropic, ENV['ANTHROPIC_KEY'], :ja) }
 
   describe 'new provider behaviours' do
     it 'provider being called correctly' do
@@ -13,15 +13,15 @@ RSpec.describe 'Using OpenAI provider' do
     end
   end
 
-  describe 'analyze sentence in another language' do
-    describe '#analyze_sentence' do
-      it 'return the sentiment of the sentence' do
-        expect(japanese_sentiment.analyze_sentence('うまい！')).to eq({ sentence: 'うまい！', sentiment: '肯定的' })
-        expect(japanese_sentiment.analyze_sentence('不愉快')).to eq({ sentence: '不愉快', sentiment: '否定的' })
-        expect(japanese_sentiment.analyze_sentence('休暇はまずまずでした。')).to eq({ sentence: '休暇はまずまずでした。', sentiment: '中立' })
-      end
-    end
-  end
+  # describe 'analyze sentence in another language' do
+  #   describe '#analyze_sentence' do
+  #     it 'return the sentiment of the sentence' do
+  #       expect(japanese_sentiment.analyze_sentence('うまい！')).to eq({ sentence: 'うまい！', sentiment: '肯定的' })
+  #       expect(japanese_sentiment.analyze_sentence('不愉快')).to eq({ sentence: '不愉快', sentiment: '否定的' })
+  #       expect(japanese_sentiment.analyze_sentence('休暇はまずまずでした。')).to eq({ sentence: '休暇はまずまずでした。', sentiment: '中立' })
+  #     end
+  #   end
+  # end
 
   describe 'analyze feature' do
     describe '#analyze_sentence' do

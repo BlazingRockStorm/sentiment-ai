@@ -1,3 +1,4 @@
 en:
   prompt:
     sentence: "Analyze the sentiment of the sentence given below.\n%{sentence}\nThe output should be in the format- value"
+    positive_check: "Is the sentence given below positive?\n%{sentence}\nThe output should be true or false"

@@ -3,12 +3,12 @@
 require 'spec_helper'
 require 'dotenv/load'
 
-RSpec.describe 'Using Gemini Pro model' do
+RSpec.describe 'Using Gemini Pro provider' do
   let(:sentiment) { SentimentAI.new(:gemini_ai_pro, ENV['GEMINI_API']) }
   let(:japanese_sentiment) { SentimentAI.new(:gemini_ai_pro, ENV['GEMINI_API'], :ja) }
 
-  describe 'new model behaviours' do
-    it 'model being called correctly' do
+  describe 'new provider behaviours' do
+    it 'provider being called correctly' do
       expect(sentiment).to be_truthy
     end
   end
@@ -32,6 +32,14 @@ RSpec.describe 'Using Gemini Pro model' do
         expect(sentiment.analyze_sentence("I really don't know how to feel about Pokemon")).to eq({
                                                                                                     sentence: "I really don't know how to feel about Pokemon", sentiment: 'neutral'
                                                                                                   })
+      end
+    end
+
+    describe '#positive_check' do
+      it 'return true or false' do
+        expect(sentiment.positive_check('Delicious food')).to eq({ sentence: 'Delicious food',
+                                                                   positive: true })
+        expect(sentiment.positive_check('Too noisy!!!')).to eq({ sentence: 'Too noisy!!!', positive: false })
       end
     end
 
